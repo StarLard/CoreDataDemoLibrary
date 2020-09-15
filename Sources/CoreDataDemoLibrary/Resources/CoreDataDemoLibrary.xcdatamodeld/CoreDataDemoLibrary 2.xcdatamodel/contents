@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="MatchResult" representedClassName=".MatchResult" syncable="YES" codeGenerationType="category">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="didPlayerWin" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="gameModeSlug" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="opponentClassSlug" optional="YES" attributeType="String"/>
+        <attribute name="opponentImageURL" optional="YES" attributeType="URI" defaultValueString="https://playhearthstone.com"/>
+        <attribute name="updatedAt" attributeType="Date" defaultDateTimeInterval="620727600" usesScalarValueType="NO"/>
+        <relationship name="playerDeck" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerDeck" inverseName="matchResults" inverseEntity="PlayerDeck"/>
+    </entity>
+    <entity name="PlayerDeck" representedClassName=".PlayerDeck" syncable="YES" codeGenerationType="category">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="deckcode" optional="YES" attributeType="String"/>
+        <attribute name="gameModeSlug" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" defaultValueString="00000000-0000-0000-0000-000000000000" usesScalarValueType="NO"/>
+        <attribute name="imageURL" optional="YES" attributeType="URI" defaultValueString="https://playhearthstone.com"/>
+        <attribute name="isArchived" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="playerClassSlug" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="matchResults" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MatchResult" inverseName="playerDeck" inverseEntity="MatchResult"/>
+    </entity>
+    <elements>
+        <element name="MatchResult" positionX="227.73828125" positionY="11.4609375" width="128" height="178"/>
+        <element name="PlayerDeck" positionX="-63" positionY="-18" width="128" height="193"/>
+    </elements>
+</model>
